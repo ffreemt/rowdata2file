@@ -29,7 +29,7 @@ def rowdata2docx_t(rowdata: dict, infilepath: Optional[Union[str, Path]]) -> str
         message f"saved to {outfilepath}"
     """
     # outfilepath = Path(infilepath).with_suffix(".docx")
-    stem = infilepath.stem
+    stem = Path(infilepath).stem
     outfilepath = infilepath.with_name(f"{stem}-t.docx")
 
     _ = Path(pdir, "templ_dual.docx")
