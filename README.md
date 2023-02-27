@@ -14,6 +14,6 @@ pip install rowdata2file
 
 ## Use it
 ```python
-from rowdata2file import rowdata2file
+from rowdata2file import rowdata2docx, rowdata2docx_t
 
 ```
