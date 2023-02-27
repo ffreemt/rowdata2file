@@ -1,24 +1,19 @@
 """Generate docx from two lists/texts."""
 # pylint: disable=duplicate-code
 
-from typing import (
-    List,
-    Union,
-)
-
-from pathlib import Path
 from itertools import zip_longest
-
-# from textwrap import shorten
+from pathlib import Path
+from typing import List, Union
 
 from docx import Document
+from docx.enum.text import WD_COLOR_INDEX
 
 # from docx.shared import Pt
 # from docx.oxml.ns import qn
 from docx.shared import RGBColor
-from docx.enum.text import WD_COLOR_INDEX
-
 from logzero import logger
+
+# from textwrap import shorten
 
 
 # fmt: off
@@ -69,14 +64,14 @@ def gen_docx(
             font.highlight_color = WD_COLOR_INDEX.YELLOW  # pylint: disable=E1101  8
 
             # https://www.rapidtables.com/web/color/Yellow_Color.html
-            # lightyellow	#FFFFE0	rgb(255,255,224) 
+            # lightyellow	#FFFFE0	rgb(255,255,224)
             # yellow	#FFFF00	rgb(255,255,0)
             # font.highlight_color = RGBColor(0xFF, 0xFF, 0xE0)  # does no work pylint: disable=E1101
         if color:
             font.color.rgb = RGBColor(0xff, 0xff, 0xe0)  # noqa
 
     for elm0, elm1 in zip_longest(src, tgt, fillvalue=""):
-        add_para(document, elm0, False, True)  # 
-        add_para(document, elm1, False, False)  # 
+        add_para(document, elm0, False, True)  #
+        add_para(document, elm1, False, False)  #
 
     return document

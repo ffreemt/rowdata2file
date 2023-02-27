@@ -1,19 +1,15 @@
 """Convert rowdata (json in rg-grid) to docx."""
 # pylint: disable=invalid-name, no-member
-from typing import (
-    Optional,
-    Union,
-)
-
-from pathlib import Path
 import os
 import sys
-from loguru import logger
-from set_loglevel import set_loglevel
+from pathlib import Path
+from typing import Optional, Union
 
 from docx import Document
-from docx.shared import RGBColor
 from docx.enum.text import WD_COLOR_INDEX
+from docx.shared import RGBColor
+from loguru import logger
+from set_loglevel import set_loglevel
 
 # if LOGURU_LEVEL is set use it
 # otherwise set according to set_loglevel, default loglevel "INFO"/20
@@ -67,7 +63,7 @@ def rowdata2docx(rowdata: dict, infilepath: Optional[Union[str, Path]]) -> str:
             # yellow	#FFFF00	rgb(255,255,0)
             # font.highlight_color = RGBColor(0xFF, 0xFF, 0xE0)  # does no work pylint: disable=E1101
         if color:
-            font.color.rgb = RGBColor(0xff, 0xff, 0xe0)  # noqa
+            font.color.rgb = RGBColor(0xFF, 0xFF, 0xE0)  # noqa
 
     for elm in rowdata:
         add_para(document, elm["text1"], False, WD_COLOR_INDEX.YELLOW)

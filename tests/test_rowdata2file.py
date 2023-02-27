@@ -1,7 +1,6 @@
 """Test rowdata2file."""
 # pylint: disable=broad-except
-from rowdata2file import __version__
-from rowdata2file import rowdata2file
+from rowdata2file import __version__, rowdata2file
 
 
 def test_version():

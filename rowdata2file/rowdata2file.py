@@ -1,6 +1,7 @@
 """Convert rowdata (json in rg-grid) to docx."""
 import os
 import sys
+
 from loguru import logger
 from set_loglevel import set_loglevel
 
@@ -9,7 +10,6 @@ from set_loglevel import set_loglevel
 if os.environ.get("LOGURU_LEVEL") is None:
     logger.remove()
     logger.add(sys.stderr, level=set_loglevel())
-
 
 
 def rowdata2file():
